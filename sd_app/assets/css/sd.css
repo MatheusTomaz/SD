@@ -1,0 +1,163 @@
+body{
+    background-image: -webkit-linear-gradient(330deg, #799AAB, #305571 90%);
+    background-image: -o-linear-gradient(330deg, #799AAB, #305571 90%);
+    background-image: linear-gradient(60deg, #799AAB, #305571 90%);
+}
+
+/*menu*/
+
+/*MENU TOP*/
+
+.menu-top{
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 0;
+    color: white;
+    border:0;
+}
+
+.navbar-default .navbar-brand {
+    color: white;
+}
+
+.navbar-default .navbar-nav > li > a {
+    color: white;
+}
+
+.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+    color: #fff;
+}
+
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-brand:focus {
+  color: #fff;
+  background-color: transparent;
+}
+
+.navbar-nav.navbar-right:last-child{
+    margin-right: 30px;
+}
+
+.navbar-default .navbar-nav .badge{
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.navbar-form {
+    margin-left: 10%;
+}
+
+.navbar-form input{
+    background-color: transparent;
+    border: none;
+    color: white;
+    border-bottom: 1px solid black;
+}
+
+.navbar-form input:focus{
+    border: none;
+    color: white;
+    box-shadow: none;
+    border-bottom: 1px solid black;
+}
+
+.navbar-form .input-group-btn .btn{
+    background-color: transparent;
+    border: none;
+    color: white;
+}
+
+.navbar-form .form-control::-moz-placeholder{
+    color: white;
+}
+
+/*MENU LATERAL*/
+
+.menu-lateral{
+    background-color: transparent;
+    width: 15%;
+    height: 100%;
+    margin-top: 50px;
+    color: white;
+    padding-top: 0.1px;
+    text-align: center;
+}
+
+.menu-lateral > ul{
+    list-style-type: none;
+    text-align: left;
+}
+
+.menu-lateral > ul > li{
+    margin-left: -40px;
+    font-size: 0.9em;
+    font-weight: bold;
+}
+
+.menu-lateral > ul > li > a{
+    color: white;
+    display: block;
+    padding: 10px 0 10px 10px;
+}
+
+.menu-lateral > ul > li > a:hover{
+    color: white;
+    background-color: rgba(0, 0, 0, 0.2);
+    text-decoration: none;
+}
+
+.btn-default:hover, .btn-default:focus, .btn-default:active, .btn-default.active, .open > .dropdown-toggle.btn-default {
+    background-color: transparent;
+    color: white;
+}
+
+.menu-lateral .background-rounded{
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+    width: 80%;
+    margin-top: 20px;
+    margin-left: 10%;
+    padding: 20px 0;
+}
+
+.menu-lateral .background-rounded .dropdown-menu{
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    left: -45px;
+}
+
+.menu-lateral .background-rounded .dropdown-menu > li > a{
+    color: white;
+}
+
+.menu-lateral .background-rounded .dropdown-menu > li > a:hover{
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.menu-lateral .background-rounded button{
+    font-size: 0.85em;
+    padding: 5px;
+    background-color: transparent;
+    color: white;
+    border: none;
+}
+
+.menu-lateral .background-rounded img{
+    width: 100px;
+    margin-top: 20px;
+}
+
+.menu-lateral .background-rounded-menu{
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+    width: 80%;
+    margin-top: 20px;
+    margin-left: 10%;
+}
+
+.menu-lateral hr{
+    color: rgba(0, 0, 0, 0.1);
+    background-color: rgba(0, 0, 0, 0.1);
+    border-color: rgba(0, 0, 0, 0.1);
+    width: 80%;
+}
+
+/*fim menu*/
