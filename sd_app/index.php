@@ -3,8 +3,9 @@
         <meta charset="utf-8">
         <title>DASHBOARD</title>
         <link href="assets/css/bootstrap.css" rel="stylesheet">
-        <link href="assets/css/sd.css" rel="stylesheet">
         <link href="assets/css/font-awesome.min.css" rel="stylesheet">
+        <link href="assets/css/c3.css" rel="stylesheet">
+        <link href="assets/css/sd.css" rel="stylesheet">
 
     </head>
 
@@ -74,7 +75,7 @@
             <div class="menu-lateral">
                 <div class="background-rounded" align="center">
                     <img src="assets/img/user.jpg" class="img-circle">
-                    <hr>
+                    <br/><br/>
                     <div class="btn-group">
                         <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">Matheus Tomaz &nbsp;<span class="caret"></span></button>
                         </button>
@@ -84,6 +85,12 @@
                             <li><a href="#">Logout</a></li>
                         </ul>
                     </div>
+                    <hr>
+                    <ul>
+                        <li><a href="#"><i class="fa fa-line-chart"></i> &nbsp;Mensagem</a></li>
+                        <li><a href="#"><i class="fa fa-group"></i> &nbsp;Estatísticas</a></li>
+                        <li><a href="#"><i class="fa fa-meh-o"></i> &nbsp;Configurações</a></li>
+                    </ul>
                 </div>
                 <ul class="background-rounded-menu">
                     <li><a href="#"><i class="fa fa-line-chart"></i> &nbsp;Dashboard</a></li>
@@ -98,8 +105,34 @@
 
         <!-- FIM MENU DASHBOARD -->
 
+        <!-- CONTEUDO DASHBOARD -->
+
+        <section class="conteudo">
+            <h1> > Dashboard </h1>
+            <div class="grafico">
+                <div id="chart"></div>
+            </div>
+        </section>
+
+        <!-- FIM CONTEUDO DASHBOARD -->
+
+        <script type="text/javascript" src="assets/js/c3.min.js"></script>
+        <script src="assets/js/d3.min.js" charset="utf-8"></script>
         <script src="assets/js/jquery-2.1.1.min.js"></script>
         <script src="assets/js/bootstrap.min.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                var chart = c3.generate({
+                    bindto: '#chart',
+                    data: {
+                      columns: [
+                        ['data1', 30, 200, 100, 400, 150, 250],
+                        ['data2', 50, 20, 10, 40, 15, 25]
+                      ]
+                    }
+                });
+            });
+        </script>
 
     </body>
 </html>

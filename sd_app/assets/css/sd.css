@@ -1,7 +1,8 @@
 body{
-    background-image: -webkit-linear-gradient(330deg, #799AAB, #305571 90%);
-    background-image: -o-linear-gradient(330deg, #799AAB, #305571 90%);
-    background-image: linear-gradient(60deg, #799AAB, #305571 90%);
+    background-image: -webkit-linear-gradient(330deg, #799AAB, #022949);
+    background-image: -o-linear-gradient(330deg, #799AAB, #022949);
+    background-image: linear-gradient(to top, #737081, #799AAB, #022949);
+    height: 100%;
 }
 
 /*menu*/
@@ -17,6 +18,7 @@ body{
 
 .navbar-default .navbar-brand {
     color: white;
+    padding-left: 30px;
 }
 
 .navbar-default .navbar-nav > li > a {
@@ -72,13 +74,12 @@ body{
 /*MENU LATERAL*/
 
 .menu-lateral{
-    background-color: transparent;
     width: 15%;
     height: 100%;
-    margin-top: 50px;
     color: white;
-    padding-top: 0.1px;
+    padding-top: 50px;
     text-align: center;
+    position: fixed;
 }
 
 .menu-lateral > ul{
@@ -112,10 +113,39 @@ body{
 .menu-lateral .background-rounded{
     background-color: rgba(0, 0, 0, 0.2);
     border-radius: 4px;
-    width: 80%;
+    width: 90%;
     margin-top: 20px;
     margin-left: 10%;
-    padding: 20px 0;
+    padding-top: 5px;
+}
+
+.menu-lateral .background-rounded > ul{
+    list-style-type: none;
+    text-align: left;
+}
+
+.menu-lateral .background-rounded > ul > li{
+    margin-left: -40px;
+    font-size: 0.9em;
+    font-weight: bold;
+}
+
+.menu-lateral .background-rounded > ul > li > a{
+    color: white;
+    display: block;
+    padding: 10px 0 10px 10px;
+}
+
+.menu-lateral .background-rounded > ul > li > a:hover{
+    color: white;
+    background-color: rgba(0, 0, 0, 0.2);
+    text-decoration: none;
+}
+
+.menu-lateral .background-rounded > ul > li > a:hover{
+    color: white;
+    background-color: rgba(0, 0, 0, 0.2);
+    text-decoration: none;
 }
 
 .menu-lateral .background-rounded .dropdown-menu{
@@ -148,9 +178,10 @@ body{
 .menu-lateral .background-rounded-menu{
     background-color: rgba(0, 0, 0, 0.2);
     border-radius: 4px;
-    width: 80%;
+    width: 90%;
     margin-top: 20px;
     margin-left: 10%;
+    height: 500px;
 }
 
 .menu-lateral hr{
@@ -161,3 +192,22 @@ body{
 }
 
 /*fim menu*/
+
+/*CONTEUDO*/
+
+.conteudo{
+    width: 85%;
+    float: right;
+    margin-top: 50px;
+    color:white;
+    padding: 0 20px;
+}
+
+.grafico{
+    padding: 20px 30px;
+    background-color: rgba(0,0,0,0.2);
+    color: white;
+    border-radius: 4px;
+}
+
+/*FIM CONTEUDO*/
