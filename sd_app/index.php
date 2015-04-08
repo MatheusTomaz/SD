@@ -6,7 +6,7 @@
         <link href="assets/css/font-awesome.min.css" rel="stylesheet">
         <link href="assets/css/c3.css" rel="stylesheet">
         <link href="assets/css/sd.css" rel="stylesheet">
-
+        <link href="assets/css/fullcalendar.css" rel="stylesheet">
     </head>
 
     <body>
@@ -94,7 +94,7 @@
                 </div>
                 <ul class="background-rounded-menu">
                     <li><a href="#"><i class="fa fa-line-chart"></i> &nbsp;Dashboard</a></li>
-                    <li><a href="#"><i class="fa fa-group"></i> &nbsp;Grupos</a></li>
+                    <li><a href="grupos.php"><i class="fa fa-group"></i> &nbsp;Grupos</a></li>
                     <li><a href="#"><i class="fa fa-meh-o"></i> &nbsp;Amigos</a></li>
                 </ul>
             </div>
@@ -108,9 +108,71 @@
         <!-- CONTEUDO DASHBOARD -->
 
         <section class="conteudo">
-            <h1> > Dashboard </h1>
-            <div class="grafico">
-                <div id="chart"></div>
+            <div class="dashboard">
+                <h3> Dashboard </h3>
+                <div class="content">
+                    <div class="row">
+                        <div class="col-md-6">
+                           <div class="dividendos background-opacity">
+                                <h5>GRUPOS QUE VOCÊ DEVE</h5>
+                                <div class="dividendos-content">
+                                    <ul>
+                                        <li>Lorem ipsum lorem ipsum</li>
+                                        <li>Lorem ipsum lorem ipsum</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                           <div class="devedores background-opacity">
+                                <h5>GRUPOS QUE DEVEM PRA VOCÊ</h5>
+                                <div class="devedores-content">
+                                    <ul>
+                                        <li>Lorem ipsum lorem ipsum</li>
+                                        <li>Lorem ipsum lorem ipsum</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row l2">
+                        <div class="col-md-3">
+                           <div class="saldo background-opacity">
+                                <h5>SALDO</h5>
+                                <div class="saldo-content">
+                                    <p class="saldo-valor">R$ 380,00</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-9">
+                           <div class="informacoes background-opacity">
+                                <h5>INFORMAÇÕES</h5>
+                                <div class="info-content">
+                                    <ul>
+                                        <li>Lorem ipsum lorem ipsum</li>
+                                        <li>Lorem ipsum lorem ipsum</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row l3">
+                        <div class="col-md-6">
+                            <div class="calendario background-opacity">
+                                <h5>CALENDÁRIO</h5>
+                                <div id='calendar'></div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="grafico background-opacity">
+                                <h5>GRÁFICO</h5>
+                                <div class="grafico-content">
+                                    <div id="chart"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -120,6 +182,9 @@
         <script src="assets/js/d3.min.js" charset="utf-8"></script>
         <script src="assets/js/jquery-2.1.1.min.js"></script>
         <script src="assets/js/bootstrap.min.js"></script>
+        <script src='assets/js/moment.js'></script>
+        <script src='assets/js/fullcalendar.js'></script>
+        <script src='assets/js/lang-all.js'></script>
         <script type="text/javascript">
             $(document).ready(function() {
                 var chart = c3.generate({
@@ -131,6 +196,23 @@
                       ]
                     }
                 });
+                $('#calendar').fullCalendar({
+                    lang: 'pt-br',
+                    events: [
+                        {
+                            title: 'Event1',
+                            start: '2014-12-09'
+                        },
+                        {
+                            title: 'Event2',
+                            start: '2014-12-24'
+                        }
+                        // etc...
+                    ],
+                    color: 'yellow',   // an option!
+                    textColor: 'black' // an option!
+
+                })
             });
         </script>
 
