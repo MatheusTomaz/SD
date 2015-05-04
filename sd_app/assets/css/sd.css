@@ -5,6 +5,11 @@ body{
     height: 100%;
 }
 
+.close{
+    color: white;
+    opacity: 0.6;
+}
+
 /*menu*/
 
 /*MENU TOP*/
@@ -31,8 +36,8 @@ body{
 
 .navbar-default .navbar-brand:hover,
 .navbar-default .navbar-brand:focus {
-  color: #fff;
-  background-color: transparent;
+    color: #fff;
+    background-color: transparent;
 }
 
 .navbar-nav.navbar-right:last-child{
@@ -355,6 +360,123 @@ body{
     .grupos h3 button:hover{
         background-color: rgba(0, 0, 0, 0.2);
     }
+
+    /*MODAL GRUPOS*/
+
+    .modal-grupos .modal-content{
+        background-color: #496575;
+    }
+
+    .modal-grupos .modal-header{
+        height: 60px;
+    }
+
+    .modal-grupos .modal-header h4{
+        margin-top: 5px;
+        color: white;
+    }
+
+    .modal-grupos .modal-body{
+        background-color: rgba(0, 0, 0, 0.2);
+        height: 300px;
+    }
+
+    .modal-grupos .modal-body input{
+        background-color: transparent;
+        border: none;
+        color: white;
+        border-bottom: 1px solid white;
+    }
+
+    .modal-grupos .modal-body input:focus{
+        border: none;
+        color: white;
+        box-shadow: none;
+        border-bottom: 1px solid white;
+    }
+
+    .modal-grupos .modal-body .input-group-btn .btn{
+        background-color: transparent;
+        border: none;
+        color: white;
+    }
+
+    .modal-grupos .modal-body .form-control::-moz-placeholder{
+        color: white;
+    }
+
+    .modal-grupos .modal-body .autocomplete{
+        text-align: left;
+        border: 1px solid white;
+        border-radius: 4px;
+        background-color: #2E414B;
+        margin-top: -15px;
+        color: white;
+        width: 90%;
+        position: fixed;
+    }
+
+    .modal-grupos .modal-body .autocomplete .linhas{
+        height: 50px;
+        padding: 5px;
+        width: 100%;
+    }
+
+    .modal-grupos .modal-body .autocomplete .linhas:hover{
+        background-color: rgba(0, 0, 0, 0.2);
+    }
+
+    .modal-grupos .modal-body .autocomplete .linhas img{
+        height: 40px;
+    }
+
+    .modal-grupos .modal-body .autocomplete button{
+        width: 100%;
+        text-align: left;
+        background-color: transparent;
+        border: 0;
+    }
+
+    .modal-grupos .modal-body .body{
+        background-color: rgba(0, 0, 0, 0.2);
+        height: 80%;
+        width: 100%;
+        border-radius: 4px;
+        overflow-y:auto;
+    }
+
+    .modal-grupos .body .contBodyModal{
+        width: 100%;
+        height: 50px;
+        padding: 5px;
+        text-align: left;
+        border: 1px solid white;
+        border-radius: 4px;
+        background-color: #2E414B;
+        color: white;
+    }
+
+    .contBodyModal .close{
+        color: white;
+        opacity: 0.6;
+        margin-right: 10px;
+        margin-top:3px;
+    }
+
+    .modal-grupos .body .contBodyModal img{
+        height: 40px;
+    }
+
+    .modal-grupos .modal-footer .btn-default{
+        background-color: transparent;
+        color: white;
+    }
+
+    .modal-grupos .modal-footer .btn-default:hover{
+        background-color: rgba(0, 0, 0, 0.2);
+    }
+
+    /*FIM MODAL GRUPOS*/
 
     /*FIM CONTEUDO GRUPOS*/
 

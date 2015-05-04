@@ -109,7 +109,7 @@
 
         <section class="conteudo">
             <div class="grupos">
-                <h3> Meus Grupos <div class="pull-right"><button ng-click="abrirModalModificarConta(conta)">Criar grupo +</button></div></h3>
+                <h3> Meus Grupos <div class="pull-right"><button ng-click="abrirModalGrupos(conta)">Criar grupo +</button></div></h3>
                 <div class="content">
                     <div class="row">
                         <div class="col-md-12">
@@ -223,10 +223,32 @@
             <script type="text/ng-template" id="idModalGrupos">
                 <div class="modal-header">
                     <button type="button" ng-click="fechar()" class="close"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h4>Criar Grupo</h4>
                 </div>
                 <div class="modal-body" align="center">
+                    <form id="inputFormModal" role="search">
+                        <div class="form-group">
+                            <div class="input-group">
+                                <input type="text" id="inputSearchModal" autofocus autocomplete="off" ng-keyup="pesquisar(search)" ng-model="search" class="form-control" placeholder="Busca">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-default" type="button"><i class="fa fa-search"></i></button>
+                                </span>
+                            </div><!-- /input-group -->
+                        </div>
+
+                        <div id="autocomplete" class="autocomplete" style="display:none;">
+                            <div id="item{{dica.id}}" class="linhas" ng-repeat="dica in dicas">
+                                <button ng-click="selecionarPesquisa(dica.id)">
+                                    <img src="assets/img/user.jpg" class="img-circle"><span id="nome{{dica.id}}" value="{{dica.nome}}"> &nbsp;{{dica.nome}}</span>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="bodyModal" class="body">
+                    </div>
                 </div>
                 <div class="modal-footer">
+                    <button class="btn btn-default">Criar Grupo</button>
                     <button class="btn btn-default" ng-click="fechar()">fechar</button>
                 </div>
             </script>
@@ -239,6 +261,8 @@
         <script src="assets/js/angular.min.js"></script>
         <script src="assets/js/ui-bootstrap.min.js"></script>
         <script src="controller/gruposController.js"></script>
+
+
 
 
     </body>
