@@ -9,7 +9,7 @@
         <link href="assets/css/fullcalendar.css" rel="stylesheet">
     </head>
 
-    <body>
+    <body ng-app="moduloAmigos" ng-controller="controllerAmigos">
 
         <!-- MENU DASHBOARD -->
 
@@ -108,66 +108,53 @@
         <!-- CONTEUDO DASHBOARD -->
 
         <section class="conteudo">
-            <div class="dashboard">
-                <h3> Dashboard </h3>
+            <div class="amigos">
+                <h3> Amigos <div class="pull-right"><button ng-click="abrirModalGrupos(conta)">Pesquisar Amigos +</button></div></h3>
                 <div class="content">
                     <div class="row">
-                        <div class="col-md-6">
-                           <div class="dividendos background-opacity">
-                                <h5>GRUPOS QUE VOCÊ DEVE</h5>
-                                <div class="dividendos-content">
-                                    <ul>
-                                        <li>Lorem ipsum lorem ipsum</li>
-                                        <li>Lorem ipsum lorem ipsum</li>
-                                    </ul>
+                        <div class="col-md-12">
+                            <div class="busca-amigos background-opacity">
+                                <div class="form-group">
+                                    <div class="input-group">
+                                        <input type="text" id="inputSearchModal" autofocus autocomplete="off" ng-keyup="pesquisar(search)" ng-model="search" class="form-control" placeholder="Busca">
+                                        <span class="input-group-btn">
+                                            <button class="btn btn-default" type="button"><i class="fa fa-search"></i></button>
+                                        </span>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                           <div class="devedores background-opacity">
-                                <h5>GRUPOS QUE DEVEM PRA VOCÊ</h5>
-                                <div class="devedores-content">
-                                    <ul>
-                                        <li>Lorem ipsum lorem ipsum</li>
-                                        <li>Lorem ipsum lorem ipsum</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row l2">
-                        <div class="col-md-3">
-                           <div class="saldo background-opacity">
-                                <h5>SALDO</h5>
-                                <div class="saldo-content">
-                                    <p class="saldo-valor">R$ 380,00</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-9">
-                           <div class="informacoes background-opacity">
-                                <h5>INFORMAÇÕES</h5>
-                                <div class="info-content">
-                                    <ul>
-                                        <li>Lorem ipsum lorem ipsum</li>
-                                        <li>Lorem ipsum lorem ipsum</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row l3">
-                        <div class="col-md-6">
-                            <div class="calendario background-opacity">
-                                <h5>CALENDÁRIO</h5>
-                                <div id='calendar'></div>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="grafico background-opacity">
-                                <h5>GRÁFICO</h5>
-                                <div class="grafico-content">
-                                    <div id="chart"></div>
+                                <div class="busca-amigos-content">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="amigo-item">
+                                                <img class="pull-left" src="assets/img/user.jpg">
+                                                <div class="texto">
+                                                    <h5>Matheus Tomaz</h5>
+                                                    Lavras - MG
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="amigo-item">
+                                                <div class="pull-left">
+                                                    <img src="assets/img/user.jpg">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="amigo-item">
+                                                <div class="pull-left">
+                                                    <img src="assets/img/user.jpg">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="amigo-item">
+                                                <div class="pull-left">
+                                                    <img src="assets/img/user.jpg">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -176,45 +163,51 @@
             </div>
         </section>
 
+        <div>
+            <script type="text/ng-template" id="idModalPesquisarAmigos">
+                <div class="modal-header">
+                    <button type="button" ng-click="fechar()" class="close"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h4>Criar Grupo</h4>
+                </div>
+                <div class="modal-body" align="center">
+                    <form id="inputFormModal" role="search">
+                        <div class="form-group">
+                            <div class="input-group">
+                                <input type="text" id="inputSearchModal" autofocus autocomplete="off" ng-keyup="pesquisar(search)" ng-model="search" class="form-control" placeholder="Busca">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-default" type="button"><i class="fa fa-search"></i></button>
+                                </span>
+                            </div><!-- /input-group -->
+                        </div>
+
+                        <div id="autocomplete" class="autocomplete" style="display:none;">
+                            <div id="item{{dica.id}}" class="linhas" ng-repeat="dica in dicas">
+                                <button ng-click="selecionarPesquisa(dica.id)">
+                                    <img src="assets/img/user.jpg" class="img-circle"><span id="nome{{dica.id}}" value="{{dica.nome}}"> &nbsp;{{dica.nome}}</span>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="bodyModal" class="body">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-default">Criar Grupo</button>
+                    <button class="btn btn-default" ng-click="fechar()">fechar</button>
+                </div>
+            </script>
+        </div>
+
         <!-- FIM CONTEUDO DASHBOARD -->
 
-        <script type="text/javascript" src="assets/js/c3.min.js"></script>
-        <script src="assets/js/d3.min.js" charset="utf-8"></script>
         <script src="assets/js/jquery-2.1.1.min.js"></script>
         <script src="assets/js/bootstrap.min.js"></script>
-        <script src='assets/js/moment.js'></script>
-        <script src='assets/js/fullcalendar.js'></script>
-        <script src='assets/js/lang-all.js'></script>
-        <script type="text/javascript">
-            $(document).ready(function() {
-                var chart = c3.generate({
-                    bindto: '#chart',
-                    data: {
-                      columns: [
-                        ['data1', 30, 200, 100, 400, 150, 250],
-                        ['data2', 50, 20, 10, 40, 15, 25]
-                      ]
-                    }
-                });
-                $('#calendar').fullCalendar({
-                    lang: 'pt-br',
-                    events: [
-                        {
-                            title: 'Event1',
-                            start: '2014-12-09'
-                        },
-                        {
-                            title: 'Event2',
-                            start: '2014-12-24'
-                        }
-                        // etc...
-                    ],
-                    color: 'yellow',   // an option!
-                    textColor: 'black' // an option!
+        <script src="assets/js/angular.min.js"></script>
+        <script src="assets/js/ui-bootstrap.min.js"></script>
+        <script src="controller/gruposController.js"></script>
 
-                })
-            });
-        </script>
+
+
 
     </body>
 </html>

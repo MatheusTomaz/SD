@@ -10,6 +10,18 @@ body{
     opacity: 0.6;
 }
 
+h3 button{
+    background-color: transparent;
+    border: 1px solid white;
+    border-radius: 4px;
+    font-size: 0.7em;
+    padding: 5%;
+}
+
+h3 button:hover{
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
 /*menu*/
 
 /*MENU TOP*/
@@ -349,18 +361,6 @@ body{
         color: #4BEA4B;
     }
 
-    .grupos h3 button{
-        background-color: transparent;
-        border: 1px solid white;
-        border-radius: 4px;
-        font-size: 0.7em;
-        padding: 5%;
-    }
-
-    .grupos h3 button:hover{
-        background-color: rgba(0, 0, 0, 0.2);
-    }
-
     /*MODAL GRUPOS*/
 
     .modal-grupos .modal-content{
@@ -479,6 +479,188 @@ body{
     /*FIM MODAL GRUPOS*/
 
     /*FIM CONTEUDO GRUPOS*/
+
+    /*CONTEUDO AMIGOS*/
+
+    .amigos .busca-amigos{
+        width: 100%;
+    }
+
+    .amigos .busca-amigos .busca-amigos-content{
+        border: 1px solid white;
+        border-radius: 4px;
+        padding: 10px 10px 0px 10px;
+    }
+
+    .amigos .busca-amigos input{
+        background-color: transparent;
+        border: none;
+        color: white;
+        border-bottom: 1px solid white;
+    }
+
+    .amigos .busca-amigos input:focus{
+        border: none;
+        color: white;
+        box-shadow: none;
+        border-bottom: 1px solid white;
+    }
+
+    .amigos .busca-amigos .input-group-btn .btn{
+        background-color: transparent;
+        border: none;
+        color: white;
+    }
+
+    .amigos .busca-amigos .form-control::-moz-placeholder{
+        color: white;
+    }
+
+    .amigos .busca-amigos .col-md-6{
+        height: 100px;
+    }
+
+    .amigos .busca-amigos .amigo-item{
+        border: white 1px solid;
+        height: 90%;
+    }
+
+    .amigos .busca-amigos .amigo-item img{
+        border-right: white 1px solid;
+        height: 100%;
+    }
+
+    .amigos .busca-amigos .amigo-item .texto{
+        padding: 10px;
+        margin-left: 90px;
+        font-size: 0.8em;
+        margin-top: 40px;
+    }
+
+    .amigos .busca-amigos .amigo-item .texto h5{
+        margin: 0;
+        font-style: normal;
+        font-weight: bold;
+    }
+
+    /*MODAL AMIGOS*/
+
+    .modal-grupos .modal-content{
+        background-color: #496575;
+    }
+
+    .modal-grupos .modal-header{
+        height: 60px;
+    }
+
+    .modal-grupos .modal-header h4{
+        margin-top: 5px;
+        color: white;
+    }
+
+    .modal-grupos .modal-body{
+        background-color: rgba(0, 0, 0, 0.2);
+        height: 300px;
+    }
+
+    .modal-grupos .modal-body input{
+        background-color: transparent;
+        border: none;
+        color: white;
+        border-bottom: 1px solid white;
+    }
+
+    .modal-grupos .modal-body input:focus{
+        border: none;
+        color: white;
+        box-shadow: none;
+        border-bottom: 1px solid white;
+    }
+
+    .modal-grupos .modal-body .input-group-btn .btn{
+        background-color: transparent;
+        border: none;
+        color: white;
+    }
+
+    .modal-grupos .modal-body .form-control::-moz-placeholder{
+        color: white;
+    }
+
+    .modal-grupos .modal-body .autocomplete{
+        text-align: left;
+        border: 1px solid white;
+        border-radius: 4px;
+        background-color: #2E414B;
+        margin-top: -15px;
+        color: white;
+        width: 90%;
+        position: fixed;
+    }
+
+    .modal-grupos .modal-body .autocomplete .linhas{
+        height: 50px;
+        padding: 5px;
+        width: 100%;
+    }
+
+    .modal-grupos .modal-body .autocomplete .linhas:hover{
+        background-color: rgba(0, 0, 0, 0.2);
+    }
+
+    .modal-grupos .modal-body .autocomplete .linhas img{
+        height: 40px;
+    }
+
+    .modal-grupos .modal-body .autocomplete button{
+        width: 100%;
+        text-align: left;
+        background-color: transparent;
+        border: 0;
+    }
+
+    .modal-grupos .modal-body .body{
+        background-color: rgba(0, 0, 0, 0.2);
+        height: 80%;
+        width: 100%;
+        border-radius: 4px;
+        overflow-y:auto;
+    }
+
+    .modal-grupos .body .contBodyModal{
+        width: 100%;
+        height: 50px;
+        padding: 5px;
+        text-align: left;
+        border: 1px solid white;
+        border-radius: 4px;
+        background-color: #2E414B;
+        color: white;
+    }
+
+    .contBodyModal .close{
+        color: white;
+        opacity: 0.6;
+        margin-right: 10px;
+        margin-top:3px;
+    }
+
+    .modal-grupos .body .contBodyModal img{
+        height: 40px;
+    }
+
+    .modal-grupos .modal-footer .btn-default{
+        background-color: transparent;
+        color: white;
+    }
+
+    .modal-grupos .modal-footer .btn-default:hover{
+        background-color: rgba(0, 0, 0, 0.2);
+    }
+
+    /*FIM MODAL AMIGOS*/
+
+    /*FIM CONTEUDO AMIGOS*/
 
 
 /*FIM CONTEUDO*/

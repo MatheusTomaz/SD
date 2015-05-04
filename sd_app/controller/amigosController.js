@@ -1,10 +1,10 @@
-var moduloGrupos = angular.module('moduloGrupos', [ 'ui.bootstrap']);
+var moduloAmigos = angular.module('moduloAmigos', [ 'ui.bootstrap']);
 
-moduloGrupos.controller('controllerGrupos', function($scope, $http, $window, $filter, $compile, $modal) {
+moduloAmigos.controller('controllerAmigos', function($scope, $http, $window, $filter, $compile, $modal) {
 
 
 
-    $scope.abrirModalGrupos = function(conta) {
+    $scope.abrirModalAmigos = function(conta) {
 
         var modalInstance = $modal.open({
             templateUrl: 'idModalGrupos',
@@ -25,7 +25,7 @@ moduloGrupos.controller('controllerGrupos', function($scope, $http, $window, $fi
     };
 });
 
-var modalControlerGrupos = function ($scope, $modalInstance, $http, contaParametro) {
+var modalControlerAmigos = function ($scope, $modalInstance, $http, contaParametro) {
 
     $scope.pesquisar = function(pesquisa){
 

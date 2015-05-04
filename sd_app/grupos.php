@@ -94,8 +94,8 @@
                 </div>
                 <ul class="background-rounded-menu">
                     <li><a href="index.php"><i class="fa fa-line-chart"></i> &nbsp;Dashboard</a></li>
-                    <li><a href="#"><i class="fa fa-group"></i> &nbsp;Grupos</a></li>
-                    <li><a href="#"><i class="fa fa-meh-o"></i> &nbsp;Amigos</a></li>
+                    <li><a href="grupos.php"><i class="fa fa-group"></i> &nbsp;Grupos</a></li>
+                    <li><a href="amigos.php"><i class="fa fa-meh-o"></i> &nbsp;Amigos</a></li>
                 </ul>
             </div>
 
