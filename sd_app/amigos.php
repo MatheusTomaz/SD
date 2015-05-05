@@ -109,27 +109,42 @@
 
         <section class="conteudo">
             <div class="amigos">
-                <h3> Amigos <div class="pull-right"><button ng-click="abrirModalGrupos(conta)">Pesquisar Amigos +</button></div></h3>
-                <div class="content">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="busca-amigos background-opacity">
-                                <div class="form-group">
+                <div class="titulo-h3">
+                    <div class="form-group">
+                        <h3> Amigos <div class="pull-right"><button ng-click="abrirModalGrupos(conta)">Pesquisar Amigos +</button></div></h3>
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <div class="col-xs-12">
                                     <div class="input-group">
                                         <input type="text" id="inputSearchModal" autofocus autocomplete="off" ng-keyup="pesquisar(search)" ng-model="search" class="form-control" placeholder="Busca">
-                                        <span class="input-group-btn">
+                                            <span class="input-group-btn">
                                             <button class="btn btn-default" type="button"><i class="fa fa-search"></i></button>
                                         </span>
                                     </div>
                                 </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="content">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="busca-amigos background-opacity">
                                 <div class="busca-amigos-content">
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="amigo-item">
                                                 <img class="pull-left" src="assets/img/user.jpg">
                                                 <div class="texto">
-                                                    <h5>Matheus Tomaz</h5>
-                                                    Lavras - MG
+                                                    <div class="col-xs-8">
+                                                        <h5>Matheus Tomaz</h5>
+                                                        Lavras - MG
+                                                    </div>
+                                                    <div class="col-xs-4">
+                                                        <button>
+                                                            <i class="fa fa-check"></i> Amigos
+                                                        </button>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
