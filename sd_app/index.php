@@ -113,7 +113,7 @@
                 <div class="content">
                     <div class="row">
                         <div class="col-md-6">
-                           <div class="dividendos background-opacity">
+                            <div class="dividendos background-opacity">
                                 <h5>GRUPOS QUE VOCÊ DEVE</h5>
                                 <div class="dividendos-content">
                                     <ul>
@@ -124,7 +124,7 @@
                             </div>
                         </div>
                         <div class="col-md-6">
-                           <div class="devedores background-opacity">
+                            <div class="devedores background-opacity">
                                 <h5>GRUPOS QUE DEVEM PRA VOCÊ</h5>
                                 <div class="devedores-content">
                                     <ul>
@@ -137,7 +137,7 @@
                     </div>
                     <div class="row l2">
                         <div class="col-md-3">
-                           <div class="saldo background-opacity">
+                            <div class="saldo background-opacity">
                                 <h5>SALDO</h5>
                                 <div class="saldo-content">
                                     <p class="saldo-valor">R$ 380,00</p>

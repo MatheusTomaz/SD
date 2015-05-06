@@ -9,7 +9,7 @@
         <link href="assets/css/fullcalendar.css" rel="stylesheet">
     </head>
 
-    <body ng-app="moduloGrupos" ng-controller="controllerGrupos">
+    <body ng-app="moduloItemGrupo" ng-controller="controllerItemGrupo">
 
         <!-- MENU DASHBOARD -->
 
@@ -108,125 +108,134 @@
         <!-- CONTEUDO DASHBOARD -->
 
         <section class="conteudo">
-            <div class="grupos">
-                <h3> Meus Grupos <div class="pull-right"><button ng-click="abrirModalGrupos(conta)">Criar grupo +</button></div></h3>
-                <div class="content">
+            <div class="itemGrupo">
+                <h3> Meus Grupos: Minha Casa <div class="pull-right"><button><i class="fa fa-plus"></i> Adicionar Membro</button> <button>Voltar</button></div></h3>
+                <div class="atalhos">
                     <div class="row">
-                        <div class="col-md-12">
-                           <div class="convites background-opacity">
-                                <h5>CONVITES</h5>
-                                <div class="convites-content">
-                                    <ul>
-                                        <li>Lorem ipsum lorem ipsum</li>
-                                        <li>Lorem ipsum lorem ipsum</li>
-                                    </ul>
+                        <!-- <div class="col-xs-4">
+                            <div class="saldoGrupo background-opacity">
+                                <h5>SALDO</h5>
+                                <div class="saldoGrupo-content pull-right">
+                                    <p class="saldo-positivo">R$ 380,00</p>
                                 </div>
+                            </div>
+                        </div> -->
+                        <div class="col-xs-3">
+                            <div class="btnGrupo background-opacity">
+                                <button ng-click="abaPrincipal()">
+                                    CASA
+                                </button>
+                            </div>
+                        </div>
+                        <div class="col-xs-3">
+                            <div class="btnGrupo background-opacity">
+                                <button ng-click="abaCompras()">
+                                    <i class="fa fa-plus"></i> COMPRAS
+                                </button>
+                            </div>
+                        </div>
+                        <div class="col-xs-3">
+                            <div class="btnGrupo background-opacity">
+                                <button ng-click="abaContas()">
+                                    <i class="fa fa-plus"></i> CONTAS
+                                </button>
+                            </div>
+                        </div>
+                        <div class="col-xs-3">
+                            <div class="btnGrupo background-opacity">
+                                <button ng-click="abaDividas()">
+                                    <i class="fa fa-plus"></i> DÍVIDAS
+                                </button>
                             </div>
                         </div>
                     </div>
-                    <div class="grupo">
-                        <div class="row">
-                            <div class="col-md-4">
-                               <div class="background-opacity">
-                                    <h5>
-                                        Grupo 1
-                                        <div class="pull-right">
-                                            <button onclick="location.href='itemGrupo.php'"><i class="fa fa-plus"></i></button>
-                                        </div>
-                                    </h5>
-                                    <div class="grupo-content">
-                                        <div class="row">
-                                            <div class="col-md-7">Carlos Henrique</div>
-                                            <div class="col-md-5">R$ 360,00</div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-7">Gabriel Cardoso</div>
-                                            <div class="col-md-5">R$ 360,00</div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-7">Gustavo Gonçalves</div>
-                                            <div class="col-md-5">R$ 360,00</div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-7">Matheus Tomaz</div>
-                                            <div class="col-md-5">R$ 360,00</div>
-                                        </div>
-                                        <hr>
-                                        <div class="row saldo-grupo">
-                                            <div class="col-md-12">
-                                                Saldo: <span class="valor">R$ 360,00</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+
+                </div>
+                <div class="content">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div id="principal">
                             </div>
-                            <div class="col-md-4">
-                               <div class="background-opacity">
-                                    <h5>
-                                        Grupo 2
-                                        <div class="pull-right">
-                                            <button><i class="fa fa-plus"></i></button>
-                                        </div>
-                                    </h5>
-                                    <div class="grupo-content">
-                                        <div class="row">
-                                            <div class="col-md-7">Carlos Henrique</div>
-                                            <div class="col-md-5">R$ 360,00</div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-7">Gabriel Cardoso</div>
-                                            <div class="col-md-5">R$ 360,00</div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-7">Gustavo Gonçalves</div>
-                                            <div class="col-md-5">R$ 360,00</div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-7">Matheus Tomaz</div>
-                                            <div class="col-md-5">R$ 360,00</div>
-                                        </div>
-                                        <hr>
-                                        <div class="row saldo-grupo">
-                                            <div class="col-md-12">
-                                                Saldo: <span class="valor">R$ 360,00</span>
-                                            </div>
-                                        </div>
+                            <div id="contas" style="display:none;">
+                                <div class="row">
+                                    <div class="col-xs-12">
+                                        <button class="btnAddAbas"><i class="fa fa-plus"></i> Adicionar Conta</button>
                                     </div>
                                 </div>
+                                <accordion close-others="true">
+                                    <accordion-group is-open="contas1.open">
+                                        <accordion-heading>
+                                            Conta 1 <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': contas1.open, 'glyphicon-chevron-right': !contas1.open}"></i>
+                                        </accordion-heading>
+                                        This is just some content to illustrate fancy headings.
+                                    </accordion-group>
+                                    <accordion-group is-open="contas2.open">
+                                        <accordion-heading>
+                                            Conta 2 <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': contas2.open, 'glyphicon-chevron-right': !contas2.open}"></i>
+                                        </accordion-heading>
+                                        This is just some content to illustrate fancy headings.
+                                    </accordion-group>
+                                    <accordion-group is-open="contas3.open">
+                                        <accordion-heading>
+                                            Conta 3 <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': contas3.open, 'glyphicon-chevron-right': !contas3.open}"></i>
+                                        </accordion-heading>
+                                        This is just some content to illustrate fancy headings.
+                                    </accordion-group>
+                                </accordion>
                             </div>
-                            <div class="col-md-4">
-                               <div class="background-opacity">
-                                    <h5>
-                                        Grupo 3
-                                        <div class="pull-right">
-                                            <button><i class="fa fa-plus"></i></button>
-                                        </div>
-                                    </h5>
-                                    <div class="grupo-content">
-                                        <div class="row">
-                                            <div class="col-md-7">Carlos Henrique</div>
-                                            <div class="col-md-5">R$ 360,00</div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-7">Gabriel Cardoso</div>
-                                            <div class="col-md-5">R$ 360,00</div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-7">Gustavo Gonçalves</div>
-                                            <div class="col-md-5">R$ 360,00</div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-7">Matheus Tomaz</div>
-                                            <div class="col-md-5">R$ 360,00</div>
-                                        </div>
-                                        <hr>
-                                        <div class="row saldo-grupo">
-                                            <div class="col-md-12">
-                                                Saldo: <span class="valor">R$ 360,00</span>
-                                            </div>
-                                        </div>
+                            <div id="compras" style="display:none;">
+                                <div class="row">
+                                    <div class="col-xs-12">
+                                        <button class="btnAddAbas"><i class="fa fa-plus"></i> Adicionar Compra</button>
                                     </div>
                                 </div>
+                                <accordion close-others="true">
+                                    <accordion-group is-open="status1.open">
+                                        <accordion-heading>
+                                            Compra 1 <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status1.open, 'glyphicon-chevron-right': !status1.open}"></i>
+                                        </accordion-heading>
+                                        This is just some content to illustrate fancy headings.
+                                    </accordion-group>
+                                    <accordion-group is-open="status2.open">
+                                        <accordion-heading>
+                                            Compra 2 <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status2.open, 'glyphicon-chevron-right': !status2.open}"></i>
+                                        </accordion-heading>
+                                        This is just some content to illustrate fancy headings.
+                                    </accordion-group>
+                                    <accordion-group is-open="status3.open">
+                                        <accordion-heading>
+                                            Compra 3 <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status3.open, 'glyphicon-chevron-right': !status3.open}"></i>
+                                        </accordion-heading>
+                                        This is just some content to illustrate fancy headings.
+                                    </accordion-group>
+                                </accordion>
+                            </div>
+                            <div id="dividas" style="display:none;">
+                                <div class="row">
+                                    <div class="col-xs-12">
+                                        <button class="btnAddAbas"><i class="fa fa-plus"></i> Adicionar Dívida</button>
+                                    </div>
+                                </div>
+                                <accordion close-others="true">
+                                    <accordion-group is-open="divida1.open">
+                                        <accordion-heading>
+                                            Dívida 1 <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': divida1.open, 'glyphicon-chevron-right': !divida1.open}"></i>
+                                        </accordion-heading>
+                                        This is just some content to illustrate fancy headings.
+                                    </accordion-group>
+                                    <accordion-group is-open="divida2.open">
+                                        <accordion-heading>
+                                            Dívida 2 <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': divida2.open, 'glyphicon-chevron-right': !divida2.open}"></i>
+                                        </accordion-heading>
+                                        This is just some content to illustrate fancy headings.
+                                    </accordion-group>
+                                    <accordion-group is-open="divida3.open">
+                                        <accordion-heading>
+                                            Dívida 3 <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': divida3.open, 'glyphicon-chevron-right': !divida3.open}"></i>
+                                        </accordion-heading>
+                                        This is just some content to illustrate fancy headings.
+                                    </accordion-group>
+                                </accordion>
                             </div>
                         </div>
                     </div>
@@ -275,7 +284,7 @@
         <script src="assets/js/bootstrap.min.js"></script>
         <script src="assets/js/angular.min.js"></script>
         <script src="assets/js/ui-bootstrap.min.js"></script>
-        <script src="controller/gruposController.js"></script>
+        <script src="controller/itemGrupoController.js"></script>
 
 
 

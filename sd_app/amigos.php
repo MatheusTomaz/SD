@@ -109,35 +109,28 @@
 
         <section class="conteudo">
             <div class="amigos">
-                <div class="titulo-h3">
-                    <div class="form-group">
-                        <h3> Amigos <div class="pull-right"><button ng-click="abrirModalGrupos(conta)">Pesquisar Amigos +</button></div></h3>
-                        <div class="row">
-                            <div class="col-xs-12">
-                                <div class="col-xs-12">
-                                    <div class="input-group">
-                                        <input type="text" id="inputSearchModal" autofocus autocomplete="off" ng-keyup="pesquisar(search)" ng-model="search" class="form-control" placeholder="Busca">
-                                            <span class="input-group-btn">
-                                            <button class="btn btn-default" type="button"><i class="fa fa-search"></i></button>
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <h3> Amigos <div class="pull-right"><button ng-click="abrirModalAmigos(conta)">Pesquisar Amigos +</button></div></h3>
                 <div class="content">
                     <div class="row">
                         <div class="col-md-12">
                             <div class="busca-amigos background-opacity">
+                                <div class="form-group">
+                                    <div class="input-group">
+                                        <input type="text" id="inputSearchModal" autofocus autocomplete="off" ng-keyup="pesquisar(search)" ng-model="search" class="form-control" placeholder="Busca">
+                                        <span class="input-group-btn">
+                                            <button class="btn btn-default" type="button"><i class="fa fa-search"></i></button>
+                                        </span>
+                                    </div>
+                                    <!--  -->
+                                </div>
                                 <div class="busca-amigos-content">
-                                    <div class="row">
-                                        <div class="col-md-6">
+                                    <div id="autocomplete" style="display:none;" class="row">
+                                        <div class="col-md-6" ng-repeat="dica in dicas">
                                             <div class="amigo-item">
                                                 <img class="pull-left" src="assets/img/user.jpg">
                                                 <div class="texto">
                                                     <div class="col-xs-8">
-                                                        <h5>Matheus Tomaz</h5>
+                                                        <h5>{{dica.nome}}</h5>
                                                         Lavras - MG
                                                     </div>
                                                     <div class="col-xs-4">
@@ -145,27 +138,6 @@
                                                             <i class="fa fa-check"></i> Amigos
                                                         </button>
                                                     </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="amigo-item">
-                                                <div class="pull-left">
-                                                    <img src="assets/img/user.jpg">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="amigo-item">
-                                                <div class="pull-left">
-                                                    <img src="assets/img/user.jpg">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="amigo-item">
-                                                <div class="pull-left">
-                                                    <img src="assets/img/user.jpg">
                                                 </div>
                                             </div>
                                         </div>
@@ -195,19 +167,29 @@
                             </div><!-- /input-group -->
                         </div>
 
-                        <div id="autocomplete" class="autocomplete" style="display:none;">
-                            <div id="item{{dica.id}}" class="linhas" ng-repeat="dica in dicas">
-                                <button ng-click="selecionarPesquisa(dica.id)">
-                                    <img src="assets/img/user.jpg" class="img-circle"><span id="nome{{dica.id}}" value="{{dica.nome}}"> &nbsp;{{dica.nome}}</span>
-                                </button>
+                    </form>
+                    <div class="body">
+                        <div id="pesquisarPessoas">
+                            <div ng-repeat="dica in dicas">
+                                <div class="itemPessoas">
+                                    <img class="img-circle pull-left" src="assets/img/user.jpg">
+                                    <div class="texto">
+                                        <div class="col-xs-8">
+                                            <h6>{{dica.nome}}</h6>
+                                            <p>Lavras-MG</p>
+                                        </div>
+                                        <div class="col-xs-3 text-right">
+                                            <button>
+                                                <i class="fa fa-plus"></i> Adicionar
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </form>
-                    <div id="bodyModal" class="body">
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button class="btn btn-default">Criar Grupo</button>
                     <button class="btn btn-default" ng-click="fechar()">fechar</button>
                 </div>
             </script>
@@ -219,7 +201,7 @@
         <script src="assets/js/bootstrap.min.js"></script>
         <script src="assets/js/angular.min.js"></script>
         <script src="assets/js/ui-bootstrap.min.js"></script>
-        <script src="controller/gruposController.js"></script>
+        <script src="controller/amigosController.js"></script>
 
 
 
