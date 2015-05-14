@@ -756,51 +756,51 @@ h3 button:hover{
         margin-top:0;
     }
 
-    /*MODAL GRUPOS*/
+    /*MODAL ADD-MEMBRO*/
 
-    .modal-grupos .modal-content{
+    .modal-addMembro .modal-content{
         background-color: #496575;
     }
 
-    .modal-grupos .modal-header{
+    .modal-addMembro .modal-header{
         height: 60px;
     }
 
-    .modal-grupos .modal-header h4{
+    .modal-addMembro .modal-header h4{
         margin-top: 5px;
         color: white;
     }
 
-    .modal-grupos .modal-body{
+    .modal-addMembro .modal-body{
         background-color: rgba(0, 0, 0, 0.2);
         height: 300px;
     }
 
-    .modal-grupos .modal-body input{
+    .modal-addMembro .modal-body input{
         background-color: transparent;
         border: none;
         color: white;
         border-bottom: 1px solid white;
     }
 
-    .modal-grupos .modal-body input:focus{
+    .modal-addMembro .modal-body input:focus{
         border: none;
         color: white;
         box-shadow: none;
         border-bottom: 1px solid white;
     }
 
-    .modal-grupos .modal-body .input-group-btn .btn{
+    .modal-addMembro .modal-body .input-group-btn .btn{
         background-color: transparent;
         border: none;
         color: white;
     }
 
-    .modal-grupos .modal-body .form-control::-moz-placeholder{
+    .modal-addMembro .modal-body .form-control::-moz-placeholder{
         color: white;
     }
 
-    .modal-grupos .modal-body .autocomplete{
+    .modal-addMembro .modal-body .autocomplete{
         text-align: left;
         border: 1px solid white;
         border-radius: 4px;
@@ -811,28 +811,28 @@ h3 button:hover{
         position: fixed;
     }
 
-    .modal-grupos .modal-body .autocomplete .linhas{
+    .modal-addMembro .modal-body .autocomplete .linhas{
         height: 50px;
         padding: 5px;
         width: 100%;
     }
 
-    .modal-grupos .modal-body .autocomplete .linhas:hover{
+    .modal-addMembro .modal-body .autocomplete .linhas:hover{
         background-color: rgba(0, 0, 0, 0.2);
     }
 
-    .modal-grupos .modal-body .autocomplete .linhas img{
+    .modal-addMembro .modal-body .autocomplete .linhas img{
         height: 40px;
     }
 
-    .modal-grupos .modal-body .autocomplete button{
+    .modal-addMembro .modal-body .autocomplete button{
         width: 100%;
         text-align: left;
         background-color: transparent;
         border: 0;
     }
 
-    .modal-grupos .modal-body .body{
+    .modal-addMembro .modal-body .body{
         background-color: rgba(0, 0, 0, 0.2);
         height: 80%;
         width: 100%;
@@ -840,7 +840,7 @@ h3 button:hover{
         overflow-y:auto;
     }
 
-    .modal-grupos .body .contBodyModal{
+    .modal-addMembro .body .contBodyModal{
         width: 100%;
         height: 50px;
         padding: 5px;
@@ -858,22 +858,160 @@ h3 button:hover{
         margin-top:3px;
     }
 
-    .modal-grupos .body .contBodyModal img{
+    .modal-addMembro .body .contBodyModal img{
         height: 40px;
     }
 
-    .modal-grupos .modal-footer .btn-default{
+    .modal-addMembro .modal-footer .btn-default{
         background-color: transparent;
         color: white;
     }
 
-    .modal-grupos .modal-footer .btn-default:hover{
+    .modal-addMembro .modal-footer .btn-default:hover{
         background-color: rgba(0, 0, 0, 0.2);
     }
 
-    /*FIM MODAL GRUPOS*/
+    /*FIM MODAL ADD-MEMBRO*/
 
-    /*FIM CONTEUDO GRUPOS*/
+    /*MODAL ADD-COMPRA*/
+
+    .modal-addServices .modal-content{
+        background-color: #496575;
+        color: white;
+    }
+
+    .modal-addServices .modal-header{
+        height: 60px;
+    }
+
+    .modal-addServices .modal-header h4{
+        margin-top: 5px;
+        color: white;
+    }
+
+    .modal-addServices .modal-body{
+        background-color: rgba(0, 0, 0, 0.2);
+        text-align: left;
+        height: 400px;
+    }
+
+    .modal-addServices .modal-body input{
+        background-color: transparent;
+        border: none;
+        color: white;
+        border-bottom: 1px solid white;
+        width: 100%;
+        margin-bottom: 5px;
+    }
+
+    .modal-addServices .modal-body input:focus{
+        border: none;
+        color: white;
+        box-shadow: none;
+        border-bottom: 1px solid white;
+    }
+
+    .modal-addServices .modal-body textarea{
+        background-color: rgba(0, 0, 0, 0.2);
+        border: none;
+        color: white;
+        border-bottom: 1px solid white;
+        width: 100%;
+        resize:none;
+        height: 80px;
+    }
+
+    .modal-addServices .modal-body textarea:focus{
+        border: none;
+        color: white;
+        box-shadow: none;
+        border-bottom: 1px solid white;
+    }
+
+    .modal-addServices .modal-body .input-group-btn .btn{
+        background-color: transparent;
+        border: none;
+        color: white;
+    }
+
+    .modal-addServices .modal-body .form-control::-moz-placeholder{
+        color: white;
+    }
+
+    .modal-addServices .modal-body .autocomplete{
+        text-align: left;
+        border: 1px solid white;
+        border-radius: 4px;
+        background-color: #2E414B;
+        margin-top: -15px;
+        color: white;
+        width: 90%;
+        position: fixed;
+    }
+
+    .modal-addServices .modal-body .autocomplete .linhas{
+        height: 50px;
+        padding: 5px;
+        width: 100%;
+    }
+
+    .modal-addServices .modal-body .autocomplete .linhas:hover{
+        background-color: rgba(0, 0, 0, 0.2);
+    }
+
+    .modal-addServices .modal-body .autocomplete .linhas img{
+        height: 40px;
+    }
+
+    .modal-addServices .modal-body .autocomplete button{
+        width: 100%;
+        text-align: left;
+        background-color: transparent;
+        border: 0;
+    }
+
+    .modal-addServices .modal-body .body{
+        background-color: rgba(0, 0, 0, 0.2);
+        height: 100px;
+        width: 100%;
+        border-radius: 4px;
+        overflow-y:auto;
+    }
+
+    .modal-addServices .body .contBodyModal{
+        width: 100%;
+        height: 50px;
+        padding: 5px;
+        text-align: left;
+        border: 1px solid white;
+        border-radius: 4px;
+        background-color: #2E414B;
+        color: white;
+    }
+
+    .contBodyModal .close{
+        color: white;
+        opacity: 0.6;
+        margin-right: 10px;
+        margin-top:3px;
+    }
+
+    .modal-addServices .body .contBodyModal img{
+        height: 40px;
+    }
+
+    .modal-addServices .modal-footer .btn-default{
+        background-color: transparent;
+        color: white;
+    }
+
+    .modal-addServices .modal-footer .btn-default:hover{
+        background-color: rgba(0, 0, 0, 0.2);
+    }
+
+    /*FIM MODAL ADD-COMPRA*/
+
+    /*FIM CONTEUDO ITEM-GRUPOS*/
 
 
 /*FIM CONTEUDO*/

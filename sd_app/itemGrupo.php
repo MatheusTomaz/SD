@@ -109,39 +109,39 @@
 
         <section class="conteudo">
             <div class="itemGrupo">
-                <h3> Meus Grupos: Minha Casa <div class="pull-right"><button><i class="fa fa-plus"></i> Adicionar Membro</button> <button>Voltar</button></div></h3>
+                <h3> Grupo: Casa <div class="pull-right"><button onclick="location.href='grupos.php'">Voltar</button></div></h3>
                 <div class="atalhos">
                     <div class="row">
-                        <!-- <div class="col-xs-4">
+                        <div class="col-xs-4">
                             <div class="saldoGrupo background-opacity">
                                 <h5>SALDO</h5>
                                 <div class="saldoGrupo-content pull-right">
                                     <p class="saldo-positivo">R$ 380,00</p>
                                 </div>
                             </div>
-                        </div> -->
-                        <div class="col-xs-3">
+                        </div>
+                        <div class="col-xs-2">
                             <div class="btnGrupo background-opacity">
                                 <button ng-click="abaPrincipal()">
                                     CASA
                                 </button>
                             </div>
                         </div>
-                        <div class="col-xs-3">
+                        <div class="col-xs-2">
                             <div class="btnGrupo background-opacity">
                                 <button ng-click="abaCompras()">
                                     <i class="fa fa-plus"></i> COMPRAS
                                 </button>
                             </div>
                         </div>
-                        <div class="col-xs-3">
+                        <div class="col-xs-2">
                             <div class="btnGrupo background-opacity">
                                 <button ng-click="abaContas()">
                                     <i class="fa fa-plus"></i> CONTAS
                                 </button>
                             </div>
                         </div>
-                        <div class="col-xs-3">
+                        <div class="col-xs-2">
                             <div class="btnGrupo background-opacity">
                                 <button ng-click="abaDividas()">
                                     <i class="fa fa-plus"></i> DÍVIDAS
@@ -155,11 +155,36 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div id="principal">
+                                <div class="row">
+                                    <div class="col-xs-12">
+                                        <button ng-click="abrirModalAddMembro()" class="btnAddAbas"><i class="fa fa-plus"></i> Adicionar Membro</button>
+                                    </div>
+                                </div>
+                                <accordion close-others="true">
+                                    <accordion-group is-open="membro1.open">
+                                        <accordion-heading>
+                                            Carlos <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': membro1.open, 'glyphicon-chevron-right': !membro1.open}"></i>
+                                        </accordion-heading>
+                                        This is just some content to illustrate fancy headings.
+                                    </accordion-group>
+                                    <accordion-group is-open="membro2.open">
+                                        <accordion-heading>
+                                            Gabriel <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': membro2.open, 'glyphicon-chevron-right': !membro2.open}"></i>
+                                        </accordion-heading>
+                                        This is just some content to illustrate fancy headings.
+                                    </accordion-group>
+                                    <accordion-group is-open="membro3.open">
+                                        <accordion-heading>
+                                            Gustavo <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': membro3.open, 'glyphicon-chevron-right': !membro3.open}"></i>
+                                        </accordion-heading>
+                                        This is just some content to illustrate fancy headings.
+                                    </accordion-group>
+                                </accordion>
                             </div>
                             <div id="contas" style="display:none;">
                                 <div class="row">
                                     <div class="col-xs-12">
-                                        <button class="btnAddAbas"><i class="fa fa-plus"></i> Adicionar Conta</button>
+                                        <button ng-click="abrirModalAddConta()" class="btnAddAbas"><i class="fa fa-plus"></i> Adicionar Conta</button>
                                     </div>
                                 </div>
                                 <accordion close-others="true">
@@ -186,7 +211,7 @@
                             <div id="compras" style="display:none;">
                                 <div class="row">
                                     <div class="col-xs-12">
-                                        <button class="btnAddAbas"><i class="fa fa-plus"></i> Adicionar Compra</button>
+                                        <button ng-click="abrirModalAddCompra()" class="btnAddAbas"><i class="fa fa-plus"></i> Adicionar Compra</button>
                                     </div>
                                 </div>
                                 <accordion close-others="true">
@@ -213,7 +238,7 @@
                             <div id="dividas" style="display:none;">
                                 <div class="row">
                                     <div class="col-xs-12">
-                                        <button class="btnAddAbas"><i class="fa fa-plus"></i> Adicionar Dívida</button>
+                                        <button ng-click="abrirModalAddDivida()" class="btnAddAbas"><i class="fa fa-plus"></i> Adicionar Dívida</button>
                                     </div>
                                 </div>
                                 <accordion close-others="true">
@@ -244,7 +269,7 @@
         </section>
 
         <div>
-            <script type="text/ng-template" id="idModalGrupos">
+            <script type="text/ng-template" id="idModalAddMembro">
                 <div class="modal-header">
                     <button type="button" ng-click="fechar()" class="close"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
                     <h4>Criar Grupo</h4>
@@ -273,6 +298,120 @@
                 </div>
                 <div class="modal-footer">
                     <button class="btn btn-default">Criar Grupo</button>
+                    <button class="btn btn-default" ng-click="fechar()">fechar</button>
+                </div>
+            </script>
+        </div>
+
+        <div>
+            <script type="text/ng-template" id="idModalAddCompra">
+                <div class="modal-header">
+                    <button type="button" ng-click="fechar()" class="close"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h4>Adicionar Compra</h4>
+                </div>
+                <div class="modal-body" align="center">
+                    <form id="inputFormModal" role="search">
+                        <div class="form-group">
+                            Título: <input type="text" name="tituloCompra"/>
+                            Valor: <input type="text" name="valorCompra"/>
+                            Descricão: <textarea></textarea>
+                            Membros:
+                            <div class="input-group">
+                                <input type="text" id="inputSearchModal" autofocus autocomplete="off" ng-keyup="pesquisar(search)" ng-model="search" class="form-control">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-default" type="button"><i class="fa fa-search"></i></button>
+                                </span>
+                            </div><!-- /input-group -->
+                        </div>
+                        <div id="autocomplete" class="autocomplete" style="display:none;">
+                            <div id="item{{dica.id}}" class="linhas" ng-repeat="dica in dicas">
+                                <button ng-click="selecionarPesquisa(dica.id)">
+                                    <img src="assets/img/user.jpg" class="img-circle"><span id="nome{{dica.id}}" value="{{dica.nome}}"> &nbsp;{{dica.nome}}</span>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="bodyModal" class="body">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-default">Adicionar Compra</button>
+                    <button class="btn btn-default" ng-click="fechar()">fechar</button>
+                </div>
+            </script>
+        </div>
+
+        <div>
+            <script type="text/ng-template" id="idModalAddConta">
+                <div class="modal-header">
+                    <button type="button" ng-click="fechar()" class="close"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h4>Adicionar Conta</h4>
+                </div>
+                <div class="modal-body" align="center">
+                    <form id="inputFormModal" role="search">
+                        <div class="form-group">
+                            Título: <input type="text" name="tituloConta"/>
+                            Valor: <input type="text" name="valorConta"/>
+                            Descricão: <textarea></textarea>
+                            Membros:
+                            <div class="input-group">
+                                <input type="text" id="inputSearchModal" autofocus autocomplete="off" ng-keyup="pesquisar(search)" ng-model="search" class="form-control">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-default" type="button"><i class="fa fa-search"></i></button>
+                                </span>
+                            </div><!-- /input-group -->
+                        </div>
+                        <div id="autocomplete" class="autocomplete" style="display:none;">
+                            <div id="item{{dica.id}}" class="linhas" ng-repeat="dica in dicas">
+                                <button ng-click="selecionarPesquisa(dica.id)">
+                                    <img src="assets/img/user.jpg" class="img-circle"><span id="nome{{dica.id}}" value="{{dica.nome}}"> &nbsp;{{dica.nome}}</span>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="bodyModal" class="body">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-default">Adicionar Conta</button>
+                    <button class="btn btn-default" ng-click="fechar()">fechar</button>
+                </div>
+            </script>
+        </div>
+
+        <div>
+            <script type="text/ng-template" id="idModalAddDivida">
+                <div class="modal-header">
+                    <button type="button" ng-click="fechar()" class="close"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h4>Adicionar Dívida</h4>
+                </div>
+                <div class="modal-body" align="center">
+                    <form id="inputFormModal" role="search">
+                        <div class="form-group">
+                            Título: <input type="text" name="tituloDivida"/>
+                            Valor: <input type="text" name="valorDivida"/>
+                            Descricão: <textarea></textarea>
+                            Membro:
+                            <div class="input-group">
+                                <input type="text" id="inputSearchModal" autofocus autocomplete="off" ng-keyup="pesquisar(search)" ng-model="search" class="form-control">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-default" type="button"><i class="fa fa-search"></i></button>
+                                </span>
+                            </div><!-- /input-group -->
+                        </div>
+                        <div id="autocomplete" class="autocomplete" style="display:none;">
+                            <div id="item{{dica.id}}" class="linhas" ng-repeat="dica in dicas">
+                                <button ng-click="selecionarPesquisa(dica.id)">
+                                    <img src="assets/img/user.jpg" class="img-circle"><span id="nome{{dica.id}}" value="{{dica.nome}}"> &nbsp;{{dica.nome}}</span>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="bodyModal" class="body">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-default">Adicionar Dívida</button>
                     <button class="btn btn-default" ng-click="fechar()">fechar</button>
                 </div>
             </script>
