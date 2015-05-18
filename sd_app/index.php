@@ -1,4 +1,7 @@
 <html>
+    <?php
+        session_start();
+    ?>
     <head>
         <meta charset="utf-8">
         <title>DASHBOARD</title>
@@ -74,10 +77,10 @@
 
             <div class="menu-lateral">
                 <div class="background-rounded" align="center">
-                    <img src="assets/img/user.jpg" class="img-circle">
+                    <img src="<?php echo($_SESSION['img']) ?>" class="img-circle">
                     <br/><br/>
                     <div class="btn-group">
-                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">Matheus Tomaz &nbsp;<span class="caret"></span></button>
+                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><?php echo($_SESSION['nome']) ?> &nbsp;<span class="caret"></span></button>
                         </button>
                         <ul class="dropdown-menu" role="menu">
                             <li><a href="#">Configurações de usuário</a></li>
