@@ -1,12 +1,11 @@
 <html>
     <?php
-        require_once('config/loginfacebook.php');
         session_start();
+        // require_once('controller/cadastroController.php');
         define( 'DS', DIRECTORY_SEPARATOR );
         define( 'BASE_DIR', dirname(dirname( __FILE__ )) . DS );
-        require_once BASE_DIR . sd_app . DS . 'config' . DS . 'logarController.php';
-        $login = new loginController();
-        $login->verificarLogin();
+        require_once BASE_DIR . sd_app . DS . 'controller' . DS . 'cadastroController.php';
+        $usuarioD = new cadastroController();
     ?>
     <head>
         <meta charset="utf-8">
@@ -17,34 +16,43 @@
         <link href="assets/css/bootstrap-social.css" rel="stylesheet">
     </head>
 
-    <body class="login">
+    <body class="cadastro">
 
         <!-- LOGIN -->
 
         <div class="panel panel-default">
             <div class="panel-body">
 
-                <h4>SD - Sistema de Dívidas</h4>
-
-                <form action="login.php" method="post">
+                <h4>SD - Cadastro</h4>
+                <?=$usuarioD->msg;?>
+                <img class="img-circle" src="<?=$_SESSION['img']?>"/>
+                <form action="cadastro.php" method="post">
                     <div class="form-group">
-                        <input name="email" type="text" placeholder="E-mail"/>
+                        <label class="pull-left">Nome: </label>
+                        <input name="nome" type="text" value="<?=$_SESSION['nome']?>" placeholder="E-mail"/>
                     </div>
                     <div class="form-group">
-                        <input name="senha" type="password" placeholder="Senha"/>
+                        <label class="pull-left">E-mail:</label>
+                        <input name="email" type="text" value="<?=$_SESSION['email']?>" placeholder="E-mail"/>
                     </div>
                     <div class="form-group">
-                        <input type="submit" value="Entrar">
+                        <label class="pull-left">Senha:</label>
+                        <input name="senha" type="password" placeholder="*********"/>
                     </div>
                     <div class="form-group">
-                        <a class="btn btn-social btn-facebook" href="https://www.facebook.com/dialog/oauth?client_id=1597162270524261&redirect_uri=http://192.168.0.108/SD/sd_app/login.php&scope=email">
-                            <i class="fa fa-facebook"></i> Entrar com Facebook
-                        </a>
+                        <label class="pull-left">Confirmar Senha:</label>
+                        <input name="confirmarSenha" type="password" placeholder="*********"/>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Cadastrar">
                     </div>
                 </form>
 
             </div>
         </div>
+
+
+
 
         <!-- FIM LOGIN -->
 

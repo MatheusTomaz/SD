@@ -85,7 +85,7 @@
                         <ul class="dropdown-menu" role="menu">
                             <li><a href="#">Configurações de usuário</a></li>
                             <li class="divider"></li>
-                            <li><a href="#">Logout</a></li>
+                            <li><a href="login.php?logout=1">Logout</a></li>
                         </ul>
                     </div>
                     <hr>
