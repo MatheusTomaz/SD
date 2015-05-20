@@ -21,7 +21,7 @@
             $this->usuario->setEmail($_POST['email']);
             $this->usuario->setSenha($_POST['senha']);
 
-            if(isset($_POST['email'])){
+            if(isset($_POST['x'])){
                 $this->autenticar();
             }
 
@@ -37,7 +37,7 @@
             if ($this->login->logar($this->usuario->getEmail(), $this->usuario->getSenha())){
                 header("Location:http://192.168.0.108/SD/sd_app/");
             }else{
-                $this->msg = "Login/Senha Inválidos!";
+                $this->msg = "<div class='well msg'>Email/Senha inválidos!</div>";
             }
         }
 

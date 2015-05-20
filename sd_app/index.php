@@ -1,6 +1,13 @@
 <html>
     <?php
         session_start();
+        define( 'DS', DIRECTORY_SEPARATOR );
+        define( 'BASE_DIR', dirname(dirname( __FILE__ )) . DS );
+        require_once BASE_DIR . 'sd_app' . DS . 'config' . DS . 'logarController.php';
+        require_once BASE_DIR . 'sd_app' . DS . 'controller' . DS . 'dashboardController.php';
+        $login = new loginController();
+        $login->verificar();
+        $usuarioD = new dashboardController();
     ?>
     <head>
         <meta charset="utf-8">

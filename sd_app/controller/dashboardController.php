@@ -5,36 +5,29 @@
     require_once BASE_DIR . sd_app . DS . 'bean' . DS . 'bean.php';
     require_once BASE_DIR . sd_app . DS . 'dao' . DS . 'usuarioDAO.php';
 
-    class cadastroController{
+    class dashboardController{
 
         public $msg, $class;
 
         private $usuario, $usuarioDAO;
 
-        function cadastroController(){
+        function dashboardController(){
 
-            $this->usuarioDAO = new usuarioDAO();
-            $this->usuario = new usuario();
-            $this->usuario->setPhoto($_SESSION['img']);
-            $this->usuario->setNome(utf8_decode($_POST['nome']));
-            $this->usuario->setSenha($_POST['senha']);
-            $this->usuario->setEmail($_SESSION['email']);
-            $this->usuario->setConfSenha($_POST['confirmarSenha']);
-            if(isset($_POST['nome']) && $this->validarCampos()){
-                $this->cadastrar();
-            }
+            // $this->usuarioDAO = new usuarioDAO();
+            // $this->usuario = new usuario();
+            // $this->usuario->setPhoto($_SESSION['img']);
+            // $this->usuario->setNome(utf8_decode($_POST['nome']));
+            // $this->usuario->setSenha($_POST['senha']);
+            // $this->usuario->setEmail($_SESSION['email']);
+            // $this->usuario->setConfSenha($_POST['confirmarSenha']);
+            // if(isset($_POST['nome']) && $this->validarCampos()){
+            //     $this->cadastrar();
+            // }
         }
 
         function validarDados(){
             $res = $this->usuarioDAO->recuperarUsuario($this->usuario->getEmail());
             return (mysql_num_rows($res)>0);
-        }
-
-        function buscarDados(){
-            $res = $this->usuarioDAO->recuperarUsuario($this->usuario->getEmail());
-            $row = mysql_fetch_array($res);
-            $_SESSION['id'] = $row['nome'];
-            $_SESSION['senha'] = $row['senha'];
         }
 
         function validarCampos(){

@@ -4,7 +4,7 @@
         session_start();
         define( 'DS', DIRECTORY_SEPARATOR );
         define( 'BASE_DIR', dirname(dirname( __FILE__ )) . DS );
-        require_once BASE_DIR . sd_app . DS . 'config' . DS . 'logarController.php';
+        require_once BASE_DIR . 'sd_app' . DS . 'config' . DS . 'logarController.php';
         $login = new loginController();
         $login->verificarLogin();
     ?>
@@ -26,6 +26,8 @@
 
                 <h4>SD - Sistema de Dívidas</h4>
 
+                <?=$login->msg;?>
+
                 <form action="login.php" method="post">
                     <div class="form-group">
                         <input name="email" type="text" placeholder="E-mail"/>
@@ -40,6 +42,7 @@
                         <a class="btn btn-social btn-facebook" href="https://www.facebook.com/dialog/oauth?client_id=1597162270524261&redirect_uri=http://192.168.0.108/SD/sd_app/login.php&scope=email">
                             <i class="fa fa-facebook"></i> Entrar com Facebook
                         </a>
+                        <input name="x" type="hidden" value="x"/>
                     </div>
                 </form>
 

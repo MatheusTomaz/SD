@@ -4,8 +4,13 @@
         // require_once('controller/cadastroController.php');
         define( 'DS', DIRECTORY_SEPARATOR );
         define( 'BASE_DIR', dirname(dirname( __FILE__ )) . DS );
-        require_once BASE_DIR . sd_app . DS . 'controller' . DS . 'cadastroController.php';
+        require_once BASE_DIR . 'sd_app' . DS . 'config' . DS . 'logarController.php';
+        require_once BASE_DIR . 'sd_app' . DS . 'controller' . DS . 'cadastroController.php';
+        $login = new loginController();
         $usuarioD = new cadastroController();
+        $usuarioD->buscarDados();
+        $login->verificarLogin();
+        $usuarioD->verificarCadastro();
     ?>
     <head>
         <meta charset="utf-8">
@@ -29,11 +34,11 @@
                 <form action="cadastro.php" method="post">
                     <div class="form-group">
                         <label class="pull-left">Nome: </label>
-                        <input name="nome" type="text" value="<?=$_SESSION['nome']?>" placeholder="E-mail"/>
+                        <input name="nome" type="text" value="<?=$_SESSION['nome']?>" disabled placeholder="E-mail"/>
                     </div>
                     <div class="form-group">
                         <label class="pull-left">E-mail:</label>
-                        <input name="email" type="text" value="<?=$_SESSION['email']?>" placeholder="E-mail"/>
+                        <input name="email" type="text" value="<?=$_SESSION['email']?>" disabled placeholder="E-mail"/>
                     </div>
                     <div class="form-group">
                         <label class="pull-left">Senha:</label>

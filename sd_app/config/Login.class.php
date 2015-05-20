@@ -55,9 +55,7 @@ class Login {
         $login = mysql_real_escape_string($login);
         $senha = mysql_real_escape_string($senha);
         // Verifica se o usuário existe
-        $query = "SELECT *
-                             FROM {$this->tabela}
-                             WHERE {$this->campoLogin} = '{$login}' AND {$this->campoSenha} = '{$senha}'";
+        $query = "SELECT * FROM {$this->tabela} WHERE {$this->campoLogin} = '{$login}' AND {$this->campoSenha} = '{$senha}'";
         $query = mysql_query($query);
 
         // Se encontrado um usuário
