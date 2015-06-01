@@ -19,7 +19,7 @@
     </head>
 
     <body ng-app="moduloDashboard" ng-controller="controllerDashboard">
-
+        <input type="hidden" id="idSession" value="<?=$_SESSION['id'];?>">
         <!-- MENU DASHBOARD -->
 
         <section class="menu">

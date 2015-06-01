@@ -2,9 +2,10 @@ var moduloDashboard = angular.module('moduloDashboard', [ 'ui.bootstrap']);
 
 moduloDashboard.controller('controllerDashboard', function($scope, $http, $window, $filter, $compile, $modal) {
 
+    var idAdd = $('#idSession').val();
 
     $(document).ready(function(){
-        $http.post('controller/numSolicitacao.php?idAdd=').success(function(data) {
+        $http.post('controller/numSolicitacao.php', {"idAdd" : idAdd}).success(function(data) {
             // Coloca o autocomplemento
             console.log(data);
             // JSON retornado do banco
