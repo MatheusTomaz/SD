@@ -7,7 +7,6 @@
         require_once BASE_DIR . 'sd_app' . DS . 'controller' . DS . 'dashboardController.php';
         $login = new loginController();
         $login->verificar();
-        $usuarioD = new dashboardController();
     ?>
     <head>
         <meta charset="utf-8">
@@ -19,7 +18,7 @@
         <link href="assets/css/fullcalendar.css" rel="stylesheet">
     </head>
 
-    <body>
+    <body ng-app="moduloDashboard" ng-controller="controllerDashboard">
 
         <!-- MENU DASHBOARD -->
 
@@ -64,13 +63,23 @@
                                 </ul>
                             </li>
                             <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell"></i> <span class="badge">42</span></a>
-                                <ul class="dropdown-menu" role="menu">
-                                    <li><a href="#">Action</a></li>
-                                    <li><a href="#">Another action</a></li>
-                                    <li><a href="#">Something else here</a></li>
-                                    <li class="divider"></li>
-                                    <li><a href="#">Separated link</a></li>
+                                <a href ng-click="buscaSolicitacao(<?=$_SESSION['id']?>)" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell"></i> <span class="badge">{{numSolicitacao}}</span></a>
+                                <ul class="solicitacoes dropdown-menu" role="menu">
+                                    <li class="titulo"><h6>Solicitações ({{numSolicitacao}})</h6></li>
+                                    <li class="solicitacao" ng-repeat="solicitacao in solicitacoes">
+                                        <img class="pull-left" src="<?php echo($_SESSION['img']) ?>">
+                                        <div class="texto">
+                                            {{solicitacao.nome}}
+                                            <button class="pull-right btn-recusar">
+                                                Recusar
+                                            </button>
+                                            <button class="pull-right btn-aceitar">
+                                                Aceitar
+                                            </button>
+                                        </div>
+                                    </li>
+
+                                    <li class="rodape"></li>
                                 </ul>
                             </li>
                         </ul>
@@ -191,10 +200,13 @@
         <script type="text/javascript" src="assets/js/c3.min.js"></script>
         <script src="assets/js/d3.min.js" charset="utf-8"></script>
         <script src="assets/js/jquery-2.1.1.min.js"></script>
+        <script src="assets/js/angular.min.js"></script>
+        <script src="assets/js/ui-bootstrap.min.js"></script>
         <script src="assets/js/bootstrap.min.js"></script>
         <script src='assets/js/moment.js'></script>
         <script src='assets/js/fullcalendar.js'></script>
         <script src='assets/js/lang-all.js'></script>
+        <script src="controller/dashboardController.js"></script>
         <script type="text/javascript">
             $(document).ready(function() {
                 var chart = c3.generate({
@@ -206,6 +218,10 @@
                       ]
                     }
                 });
+                $('.dropdown-menu').click(function(event){
+                    event.stopPropagation();
+                });
+
                 $('#calendar').fullCalendar({
                     lang: 'pt-br',
                     events: [

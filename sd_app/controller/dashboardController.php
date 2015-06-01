@@ -55,6 +55,14 @@
             }
         }
 
+        function buscarDados(){
+            $res = $this->usuarioDAO->recuperarUsuario($this->usuario->getEmail());
+            $row = mysql_fetch_array($res);
+            $_SESSION['id'] = $row['id'];
+            $_SESSION['nome'] = $row['nome'];
+            $_SESSION['senha'] = $row['senha'];
+        }
+
         function cadastrar(){
             if($this->usuario->getSenha() != $this->usuario->getConfSenha()){
                 $this->msg = "<div class='well msg'>Senha não confere</div>";

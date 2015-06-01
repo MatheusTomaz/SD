@@ -155,6 +155,77 @@ h3 button:hover{
     background-color: rgba(0, 0, 0, 0.4);
 }
 
+.menu .solicitacoes{
+    width: 400px;
+    color: #0D304B;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.25);
+    border-radius: 4px !important;
+    height: 300px;
+}
+
+.menu .solicitacoes .titulo{
+    height: 30px;
+    background-color: white;
+    border-radius: 4px 4px 0 0!important;
+    margin-top:-5px;
+    padding: 7px 0 0 10px;
+}
+
+.menu .solicitacoes .rodape{
+    position: relative;
+    bottom: -120px;
+    height: 30px;
+    border-radius: 0 0 4px 4px !important;
+    margin-bottom:-5px;
+    background-color: white;
+    border-top: 1px solid #ccc;
+}
+
+.menu .solicitacoes .titulo h6{
+    margin:0;
+    font-weight: bold;
+}
+
+.menu .solicitacoes .solicitacao{
+    height: 60px;
+    background-color: #E6E6E6;
+    border: 1px solid #ccc;
+    padding: 5px;
+    margin: 0;
+}
+
+.menu .solicitacoes li{
+    height: 60px;
+    background-color: white;
+    padding: 5px 0 0 10px;
+    margin: 0;
+}
+
+.menu .solicitacoes img{
+    width: 50px;
+    color: blue;
+}
+
+.menu .solicitacoes .texto{
+    padding: 13px 10px 0 60px;
+}
+
+.menu .solicitacoes .texto button{
+    border-radius: 2px;
+    margin-right: 5px;
+}
+
+.menu .solicitacoes .texto .btn-aceitar{
+    background-color: #53768B;
+    color: white;
+    border: #0E314C 1px solid;
+}
+
+.menu .solicitacoes .texto .btn-recusar{
+    background-color: white;
+    border: #ccc 1px solid;
+}
+
 .navbar-form {
     margin-left: 10%;
 }
@@ -592,6 +663,18 @@ h3 button:hover{
         overflow: hidden;
     }
 
+    .amigos .msg{
+        position: absolute;
+        top:0;
+        left: 150px;
+        border: 1px solid white;
+        border-radius: 4px;
+        box-shadow: 0 0 5px 2px white;
+        padding: 10px;
+        background-color: rgba(0,0,0,0.2);
+        font-size: 0.6em;
+    }
+
     .amigos .busca-amigos-content{
         overflow-y: scroll;
         height: 400px;
@@ -651,10 +734,8 @@ h3 button:hover{
     }
 
     .amigos .busca-amigos .amigo-item .texto{
-        padding: 10px;
-        margin-left: 80px;
         font-size: 0.8em;
-        margin-top: 20px;
+        padding: 20px 0 0 20px !important;
     }
 
     .amigos .busca-amigos .amigo-item .texto h5{
@@ -663,9 +744,16 @@ h3 button:hover{
         font-weight: bold;
     }
 
+    .amigos .busca-amigos .amigo-item .col-xs-8,
+    .amigos .busca-amigos .amigo-item .col-xs-4,
+    .amigos .busca-amigos .amigo-item .col-xs-9{
+        padding: 0;
+    }
+
     .amigos .busca-amigos .amigo-item button{
-        font-size: 1.2em;
-        padding: 5%;
+        font-size: 0.9em;
+        padding: 5px;
+        float: right;
     }
 
     /*MODAL AMIGOS*/

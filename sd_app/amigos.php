@@ -1,4 +1,14 @@
 <html>
+    <?php
+        session_start();
+        define( 'DS', DIRECTORY_SEPARATOR );
+        define( 'BASE_DIR', dirname(dirname( __FILE__ )) . DS );
+        require_once BASE_DIR . 'sd_app' . DS . 'config' . DS . 'logarController.php';
+        require_once BASE_DIR . 'sd_app' . DS . 'controller' . DS . 'amigosController.php';
+        $login = new loginController();
+        $login->verificar();
+        // $usuarioD = new amigosController();
+    ?>
     <head>
         <meta charset="utf-8">
         <title>DASHBOARD</title>
@@ -74,10 +84,10 @@
 
             <div class="menu-lateral">
                 <div class="background-rounded" align="center">
-                    <img src="assets/img/user.jpg" class="img-circle">
+                    <img src="<?php echo($_SESSION['img']) ?>" class="img-circle">
                     <br/><br/>
                     <div class="btn-group">
-                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">Matheus Tomaz &nbsp;<span class="caret"></span></button>
+                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><?php echo($_SESSION['nome']) ?> &nbsp;<span class="caret"></span></button>
                         </button>
                         <ul class="dropdown-menu" role="menu">
                             <li><a href="#">Configurações de usuário</a></li>
@@ -109,14 +119,14 @@
 
         <section class="conteudo">
             <div class="amigos">
-                <h3> Amigos <div class="pull-right"><button ng-click="abrirModalAmigos(conta)">Pesquisar Amigos +</button></div></h3>
+                <h3> Amigos <div class="msg" ng-show="msgShow">{{data.value}}</div><div class="pull-right"><button ng-click="abrirModalAmigos(conta)">Pesquisar Amigos +</button></div></h3>
                 <div class="content">
                     <div class="row">
                         <div class="col-md-12">
                             <div class="busca-amigos background-opacity">
                                 <div class="form-group">
                                     <div class="input-group">
-                                        <input type="text" id="inputSearchModal" autofocus autocomplete="off" ng-keyup="pesquisar(search)" ng-model="search" class="form-control" placeholder="Busca">
+                                        <input type="text" id="inputSearchModal" autofocus autocomplete="off" ng-keyup="pesquisar(search,<?=$_SESSION['id']?>)" ng-model="search" class="form-control" placeholder="Busca">
                                         <span class="input-group-btn">
                                             <button class="btn btn-default" type="button"><i class="fa fa-search"></i></button>
                                         </span>
@@ -125,19 +135,15 @@
                                 </div>
                                 <div class="busca-amigos-content">
                                     <div id="autocomplete" style="display:none;" class="row">
-                                        <div class="col-md-6" ng-repeat="dica in dicas">
+                                        <div class="col-md-6" ng-repeat="busca in buscas">
                                             <div class="amigo-item">
                                                 <img class="pull-left" src="assets/img/user.jpg">
-                                                <div class="texto">
-                                                    <div class="col-xs-8">
-                                                        <h5>{{dica.nome}}</h5>
-                                                        Lavras - MG
-                                                    </div>
-                                                    <div class="col-xs-4">
-                                                        <button>
-                                                            <i class="fa fa-check"></i> Amigos
-                                                        </button>
-                                                    </div>
+                                                <div class="col-xs-9 texto">
+                                                    <h5>{{busca.nome}}</h5>
+                                                    Lavras - MG
+                                                </div>
+                                                <div class="col-xs-9 itemBtn">
+                                                    <button><i class="fa fa-check"></i> Amigos</button>
                                                 </div>
                                             </div>
                                         </div>
@@ -160,7 +166,7 @@
                     <form id="inputFormModal" role="search">
                         <div class="form-group">
                             <div class="input-group">
-                                <input type="text" id="inputSearchModal" autofocus autocomplete="off" ng-keyup="pesquisar(search)" ng-model="search" class="form-control" placeholder="Busca">
+                                <input type="text" id="inputSearchModal" autofocus autocomplete="off" ng-keyup="pesquisar(search,<?=$_SESSION['id']?>)" ng-model="search" class="form-control" placeholder="Busca">
                                 <span class="input-group-btn">
                                     <button class="btn btn-default" type="button"><i class="fa fa-search"></i></button>
                                 </span>
@@ -179,9 +185,7 @@
                                             <p>Lavras-MG</p>
                                         </div>
                                         <div class="col-xs-3 text-right">
-                                            <button>
-                                                <i class="fa fa-plus"></i> Adicionar
-                                            </button>
+                                            <button ng-click='adicionarAmigo("<?=$_SESSION['id']?>",dica.id)' id="addAmigoBtn{{dica.id}}"><i class="fa fa-{{dica.fa}}"></i> {{dica.amigos}}</button>
                                         </div>
                                     </div>
                                 </div>

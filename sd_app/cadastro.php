@@ -34,11 +34,11 @@
                 <form action="cadastro.php" method="post">
                     <div class="form-group">
                         <label class="pull-left">Nome: </label>
-                        <input name="nome" type="text" value="<?=$_SESSION['nome']?>" disabled placeholder="E-mail"/>
+                        <input name="nome" type="text" value="<?=$_SESSION['nome']?>" readonly placeholder="E-mail"/>
                     </div>
                     <div class="form-group">
                         <label class="pull-left">E-mail:</label>
-                        <input name="email" type="text" value="<?=$_SESSION['email']?>" disabled placeholder="E-mail"/>
+                        <input name="email" type="text" value="<?=$_SESSION['email']?>" readonly placeholder="E-mail"/>
                     </div>
                     <div class="form-group">
                         <label class="pull-left">Senha:</label>

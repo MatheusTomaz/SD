@@ -1,55 +1,40 @@
-var moduloAmigos = angular.module('moduloAmigos', [ 'ui.bootstrap']);
+var moduloDashboard = angular.module('moduloDashboard', [ 'ui.bootstrap']);
 
-moduloAmigos.controller('controllerAmigos', function($scope, $http, $window, $filter, $compile, $modal) {
-
-    $scope.pesquisar = function(pesquisa,idAdd){
-
-        // Se a pesquisa for vazia
-        if (pesquisa == ""){
-
-            // Retira o autocomplete
-            document.getElementById("autocomplete").style.display = "none";
-        }else{
-            $scope.buscas = 0;
-            // Pesquisa no banco via AJAX
-            $http.post('controller/autocomplete.php', { "data" : pesquisa, "idAdd" : idAdd}).success(function(data) {
-                // console.log("oi");
-                // Coloca o autocomplemento
-                document.getElementById("autocomplete").style.display = "";
-                // JSON retornado do banco
-                if(data[0].id != 0){
-                    $scope.buscas = data;
-                }
-            }).error(function(data) {
-                // Se deu algum erro, mostro no log do console
-                console.log("Ocorreu um erro no banco de dados ao trazer auto-ajuda da home");
-            });
-        }
-    };
+moduloDashboard.controller('controllerDashboard', function($scope, $http, $window, $filter, $compile, $modal) {
 
 
-    $scope.abrirModalAmigos = function(conta) {
+    $(document).ready(function(){
+        $http.post('controller/numSolicitacao.php?idAdd=').success(function(data) {
+            // Coloca o autocomplemento
+            console.log(data);
+            // JSON retornado do banco
 
-        var modalInstance = $modal.open({
-            templateUrl: 'idModalPesquisarAmigos',
-            controller: modalControlerAmigos,
-            size: 'md',
-            windowClass: 'modal-amigos',
-            resolve: {
-                contaParametro: function () {
-                    return 'oi';
-                }
-            }
+            $scope.numSolicitacao = data[0].num;
+
+        }).error(function(data) {
+            // Se deu algum erro, mostro no log do console
+            console.log("Ocorreu um erro no banco de dados ao trazer auto-ajuda da home");
         });
+    });
 
-        modalInstance.result.then(function (selectedItem) {
-            $scope.selected = selectedItem;
-            console.log(selectedItem);
+    $scope.buscaSolicitacao = function(idAdd){
+
+        $http.post('controller/buscaSolicitacao.php', {"idAdd" : idAdd}).success(function(data) {
+            // Coloca o autocomplemento
+            console.log(data);
+            // JSON retornado do banco
+
+            $scope.solicitacoes = data;
+
+        }).error(function(data) {
+            // Se deu algum erro, mostro no log do console
+            console.log("Ocorreu um erro no banco de dados ao trazer auto-ajuda da home");
         });
     };
+
 });
 
-var modalControlerAmigos = function ($scope, $modalInstance, $http, contaParametro) {
+var modalControlerDashboard = function ($scope, $modalInstance, $http, contaParametro) {
 
     $scope.adicionarAmigo = function(idAdd,idAcc){
 

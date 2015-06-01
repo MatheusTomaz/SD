@@ -10,6 +10,11 @@
             return $query;
         }
 
+        public function buscaAmizade($idAdd,$idAcc){
+            $query = mysql_query("SELECT * FROM amigos WHERE idAdd = '$idAdd' AND idAcc = '$idAcc'");
+            return $query;
+        }
+
         public function cadastrar($usuario){
             $nome = utf8_encode($usuario->getNome());
             $query = mysql_query("INSERT INTO usuarios VALUES (null,
@@ -25,8 +30,6 @@
             $query = mysql_query("SELECT * FROM usuarios WHERE nome REGEXP '$nome'");
             return $query;
         }
-
-
 
     }
 ?>
