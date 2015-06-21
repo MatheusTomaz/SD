@@ -68,7 +68,7 @@
 
         function cadastrar(){
             if($this->usuario->getSenha() != $this->usuario->getConfSenha()){
-                $this->msg = "<div class='well msg'>Senha não confere</div>";
+                $this->msg = "<div class='well'>Senha não confere</div>";
             }else if(!$this->validarDados()){
                 $query = $this->usuarioDAO->cadastrar($this->usuario);
                 if(!$query){

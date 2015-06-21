@@ -119,7 +119,7 @@
 
         <section class="conteudo">
             <div class="amigos">
-                <h3> Amigos <div class="msg" ng-show="msgShow">{{data.value}}</div><div class="pull-right"><button ng-click="abrirModalAmigos(conta)">Pesquisar Amigos +</button></div></h3>
+                <h3> Amigos <div class="pull-right"><button ng-click="abrirModalAmigos(conta)">Pesquisar Amigos +</button></div></h3>
                 <div class="content">
                     <div class="row">
                         <div class="col-md-12">
@@ -137,7 +137,7 @@
                                     <div id="autocomplete" style="display:none;" class="row">
                                         <div class="col-md-6" ng-repeat="busca in buscas">
                                             <div class="amigo-item">
-                                                <img class="pull-left" src="assets/img/user.jpg">
+                                                <img class="pull-left" src="{{busca.foto}}">
                                                 <div class="col-xs-9 texto">
                                                     <h5>{{busca.nome}}</h5>
                                                     Lavras - MG
@@ -178,7 +178,7 @@
                         <div id="pesquisarPessoas">
                             <div ng-repeat="dica in dicas">
                                 <div class="itemPessoas">
-                                    <img class="img-circle pull-left" src="assets/img/user.jpg">
+                                    <img class="img-circle pull-left" src="{{dica.foto}}">
                                     <div class="texto">
                                         <div class="col-xs-8">
                                             <h6>{{dica.nome}}</h6>

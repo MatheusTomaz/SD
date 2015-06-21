@@ -13,7 +13,7 @@
     mysql_query("SET NAMES utf8",$conexao);
 
     // Prepara o select. Limito para 3 resultado, para não encher a tela de autoajuda
-    $query = 'SELECT id, nome FROM usuarios WHERE nome LIKE "'.$search.'%"';
+    $query = 'SELECT id, nome, urlFotoPerfil FROM usuarios WHERE id != "'.$objData->idAdd.'" AND nome LIKE "'.$search.'%"';
     // die($query);
     $query = mysql_query($query);
 
@@ -22,16 +22,16 @@
 
         /* percorre os resultados */
         while ($obj = mysql_fetch_array($query)) {
-            $buscaAmigo = mysql_query("SELECT * FROM amigos WHERE idAdd = '$objData->idAdd' AND idAcc = '{$obj['id']}'");
+            $buscaAmigo = mysql_query("SELECT * FROM amigos WHERE (idAdd = '$objData->idAdd' AND idAcc = '{$obj['id']}') OR (idAcc = '$objData->idAdd' AND idAdd = '{$obj['id']}')");
             $amigo = mysql_fetch_array($buscaAmigo);
             if(mysql_num_rows($buscaAmigo)>0){
                 if($amigo['solicitacao']==1){
-                    $json[] = array('id' => $obj['id'], 'nome' => $obj['nome'], 'amigos' => 'Amigos', 'fa' => 'check');
+                    $json[] = array('id' => $obj['id'], 'nome' => $obj['nome'], 'foto' => $obj['urlFotoPerfil'], 'amigos' => 'Amigos', 'fa' => 'check');
                 }else if($amigo['solicitacao']==0){
-                    $json[] = array('id' => $obj['id'], 'nome' => $obj['nome'], 'amigos' => 'Solicitação enviada', 'fa' => 'check');
+                    $json[] = array('id' => $obj['id'], 'nome' => $obj['nome'], 'foto' => $obj['urlFotoPerfil'], 'amigos' => 'Solicitação enviada', 'fa' => 'check');
                 }
             }else{
-                $json[] = array('id' => $obj['id'], 'nome' => $obj['nome'], 'amigos' => 'Adicionar', 'fa' => 'plus');
+                $json[] = array('id' => $obj['id'], 'nome' => $obj['nome'], 'foto' => $obj['urlFotoPerfil'], 'amigos' => 'Adicionar', 'fa' => 'plus');
             }
         }
 

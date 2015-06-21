@@ -14,7 +14,7 @@
 
     // Prepara o select. Limito para 3 resultado, para não encher a tela de autoajuda
     $query = "SELECT
-                    amigos.id_solicitacao, usuarios.nome, amigos.idAcc
+                    amigos.id_solicitacao, usuarios.nome, amigos.idAcc, usuarios.urlFotoPerfil
                 FROM
                     usuarios, amigos
                 WHERE
@@ -25,7 +25,7 @@
                     amigos.solicitacao = '0'
                 UNION
                 (SELECT
-                    amigos.id_solicitacao,usuarios.nome, amigos.idAdd
+                    amigos.id_solicitacao,usuarios.nome, amigos.idAdd, usuarios.urlFotoPerfil
                 FROM
                     usuarios, amigos
                 WHERE
@@ -43,7 +43,7 @@
 
         /* percorre os resultados */
         while ($obj = mysql_fetch_array($query)) {
-            $json[] = array('id_solicitacao' => $obj['id_solicitacao'], 'nome' => $obj['nome'], 'id_amigo' => $obj['id_amigo'], 'num' => $num);
+            $json[] = array('id_solicitacao' => $obj['id_solicitacao'], 'nome' => $obj['nome'], 'foto' => $obj['urlFotoPerfil'], 'id_amigo' => $obj['id_amigo'], 'num' => $num);
         }
 
 

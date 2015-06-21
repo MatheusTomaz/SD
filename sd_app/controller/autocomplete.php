@@ -13,7 +13,7 @@
     mysql_query("SET NAMES utf8",$conexao);
 
     // Prepara o select. Limito para 3 resultado, para não encher a tela de autoajuda
-    $query = "SELECT usuarios.nome, amigos.idAcc
+    $query = "SELECT usuarios.nome, amigos.idAcc, usuarios.urlFotoPerfil
                 FROM usuarios, amigos
                 WHERE usuarios.id = amigos.idAcc
                 AND amigos.idAdd = '$objData->idAdd'
@@ -21,7 +21,7 @@
                 AND amigos.solicitacao = '1'
                 UNION (
 
-                SELECT usuarios.nome, amigos.idAdd
+                SELECT usuarios.nome, amigos.idAdd, usuarios.urlFotoPerfil
                 FROM usuarios, amigos
                 WHERE usuarios.id = amigos.idAdd
                 AND amigos.idAcc = '$objData->idAdd'
@@ -34,11 +34,11 @@
     if (mysql_num_rows($query)>0) {
         /* percorre os resultados */
         while ($obj = mysql_fetch_array($query)) {
-            $json[] = array('id' => $obj['idAcc'], 'nome' => $obj['nome']);
+            $json[] = array('id' => $obj['idAcc'], 'nome' => $obj['nome'], 'foto' => $obj['urlFotoPerfil']);
         }
 
     }else{
-        $json[]= array("id" => "0", 'nome' => null);
+        $json[]= array("id" => "0", 'nome' => null, 'foto' => null);
     }
     echo json_encode($json);
 ?>

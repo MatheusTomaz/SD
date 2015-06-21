@@ -1,10 +1,9 @@
 <html>
     <?php
-        require_once('config/loginfacebook.php');
-        session_start();
-        print_r($_SESSION);
         define( 'DS', DIRECTORY_SEPARATOR );
         define( 'BASE_DIR', dirname(dirname( __FILE__ )) . DS );
+        require_once('config/loginfacebook.php');
+        session_start();
         require_once BASE_DIR . 'sd_app' . DS . 'config' . DS . 'logarController.php';
         $login = new loginController();
         $login->verificarLogin();

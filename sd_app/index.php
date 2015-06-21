@@ -67,7 +67,7 @@
                                 <ul class="solicitacoes dropdown-menu" role="menu">
                                     <li class="titulo"><h6>Solicitações ({{numSolicitacao}})</h6></li>
                                     <li class="solicitacao" ng-repeat="solicitacao in solicitacoes">
-                                        <img class="pull-left" src="<?php echo($_SESSION['img']) ?>">
+                                        <img class="pull-left" src="{{solicitacao.foto}}">
                                         <div class="texto">
                                             {{solicitacao.nome}}
                                             <button class="pull-right btn-recusar">
